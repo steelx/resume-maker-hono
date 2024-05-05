@@ -9,13 +9,19 @@ export default defineConfig({
     cors: false,
     proxy: {
       "/api": {
-        target: "http://localhost:3000",
+        target: "http://127.0.0.1:3000",
         changeOrigin: true,
       },
     },
   },
   plugins: [react()],
   resolve: {
-    alias: [{ find: "@", replacement: path.resolve(import.meta.dir, "./src") }],
+    alias: [
+      { find: "@", replacement: path.resolve(import.meta.dir, "./src") },
+      {
+        find: "@server",
+        replacement: path.resolve(import.meta.dir, "../server"),
+      },
+    ],
   },
 });

@@ -8,12 +8,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { api } from "./lib/api/api";
 
 function App() {
   const [totalSpent, setTotalSpent] = useState(0);
 
   const fetchTotalSpent = async () => {
-    const response = await fetch("/api/expenses/total");
+    const response = await api.expenses["total"].$get();
     const data = await response.json();
     setTotalSpent(data.total);
   };
