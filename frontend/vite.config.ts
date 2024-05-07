@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { TanStackRouterVite } from '@tanstack/router-vite-plugin'
 import path from "path";
 
 // https://ui.shadcn.com/docs/installation/vite
@@ -14,7 +15,7 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react()],
+  plugins: [react(), TanStackRouterVite()],
   resolve: {
     alias: [
       { find: "@", replacement: path.resolve(import.meta.dir, "./src") },
