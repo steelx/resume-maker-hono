@@ -9,7 +9,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { api } from "../lib/api/api";
+import { serverApi } from "@/lib/api";
 export const Route = createFileRoute('/')({
   component: Index
 })
@@ -18,7 +18,7 @@ function Index() {
     const [totalSpent, setTotalSpent] = useState(0);
 
     const fetchTotalSpent = async () => {
-        const response = await api.expenses["total"].$get();
+        const response = await serverApi.expenses["total"].$get();
         const data = await response.json();
         setTotalSpent(data.total);
     };
