@@ -7,7 +7,6 @@
     "watch": "bun --watch ./server/index.ts"
   },
   "devDependencies": {
-    "@tanstack/router-vite-plugin": "^1.31.18",
     "@types/bun": "latest"
   },
   "peerDependencies": {
@@ -15,10 +14,7 @@
   },
   "dependencies": {
     "@hono/zod-validator": "^0.2.1",
-    "@reduxjs/toolkit": "^2.2.3",
-    "@tanstack/react-router": "^1.31.20",
     "hono": "^4.3.0",
-    "react-redux": "^9.1.2",
     "zod": "^3.23.6"
   }
 }
