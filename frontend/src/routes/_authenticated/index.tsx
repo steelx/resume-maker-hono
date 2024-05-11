@@ -1,5 +1,4 @@
 import {createFileRoute} from '@tanstack/react-router'
-import {Button} from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -7,12 +6,13 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import {useAppSelector} from "@/lib/redux-hooks";
-import {selectAuthState} from "@/lib/auth/selectors";
-import Profile from "@/components/profile/profile";
+} from "@/components/ui/card.tsx";
+import {useAppSelector} from "@/lib/redux-hooks.ts";
+import {selectAuthState} from "@/lib/auth/selectors.ts";
+import Profile from "@/components/profile/profile.tsx";
+import LoginButton from "@/components/ui/LoginButton.tsx";
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/_authenticated/')({
   component: Index
 })
 
@@ -33,16 +33,13 @@ function Index() {
             <CardContent>Hello, stranger!</CardContent>
 
             <CardFooter className="flex justify-between">
-              <Button onClick={() => window.location.href = "/api/login"}>Login</Button>
-              <Button>Signup</Button>
+              <LoginButton/>
             </CardFooter>
           </Card>
         )
       }
     </>
   );
-
-  return <Profile/>
 }
 
 export default Route;
