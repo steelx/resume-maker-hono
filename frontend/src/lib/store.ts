@@ -1,12 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit'
 import {expensesApi} from "@/lib/expenses/expensesApi.ts";
+import {authApi} from "@/lib/auth/authApi.ts";
+import {authSlice} from "@/lib/auth/authSlice.ts";
 
 export const store = configureStore({
     reducer: {
-        [expensesApi.reducerPath]: expensesApi.reducer
+        [expensesApi.reducerPath]: expensesApi.reducer,
+        [authApi.reducerPath]: authApi.reducer,
+        [authSlice.name]: authSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(
-        expensesApi.middleware
+      expensesApi.middleware,
+      authApi.middleware,
     ),
     devTools: {
         name: "expenses-app-ui",

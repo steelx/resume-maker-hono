@@ -29,13 +29,15 @@ export const expensesApi = createApi({
             }
         }),
         postExpenses: build.mutation<Expense[], Expense>({
-            queryFn: async (data): Promise<Expense[]> => {
+            queryFn: async (data) => {
                 const res = await serverApi.expenses.$post({ json: data })
                 if (!res.ok) {
                     throw new Error("Server Error");
                 }
                 const result = await res.json();
-                return result
+                return {
+                    data: result
+                }
             }
         })
     })
