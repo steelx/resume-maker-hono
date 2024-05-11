@@ -1,6 +1,5 @@
 import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
-import { addSyntheticLeadingComment } from "typescript";
 import { z } from "zod";
 
 const expenseScheme = z.object({
@@ -21,7 +20,7 @@ const fakeExpenses: Expense[] = [
 
 export const expensesRoute = new Hono()
   .get("/all", (c) => {
-    return c.json({ expense: fakeExpenses });
+    return c.json({ expenses: fakeExpenses });
   })
   .get("/total", (c) => {
     const totalSpent = fakeExpenses.reduce((acc, val) => acc + val.amount, 0);
