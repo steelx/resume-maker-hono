@@ -1,6 +1,6 @@
 import {createApi, fakeBaseQuery} from "@reduxjs/toolkit/query/react";
 import {serverApi} from "@/lib/api";
-import {UserType} from "@server/src/types.ts";
+import {UserType} from "@server/src/shared-types";
 
 
 export const authApi = createApi({
@@ -21,4 +21,4 @@ export const authApi = createApi({
   })
 });
 
-export const { useGetProfileQuery } = authApi
+export const {useGetProfileQuery} = authApi

@@ -1,8 +1,11 @@
 import React from "react";
+import {Button} from "@/components/ui/button.tsx";
 
 const LogoutButton: React.FC = () => {
   return (
-    <a href="/api/logout" className="bg-primary text-primary-foreground hover:bg-primary/90">Logout</a>
+    <Button asChild>
+      <a href="/api/logout">Logout</a>
+    </Button>
   )
 }
 

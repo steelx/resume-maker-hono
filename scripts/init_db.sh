@@ -41,6 +41,4 @@ done
 >&2 echo "Postgres is up and running on port ${DB_PORT} - running migrations now!"
 
 export DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
-bun migrate.ts && bunx drizzle-kit studio
-
->&2 echo "drizzle has been migrated, ready to go!"
+bunx drizzle-kit studio

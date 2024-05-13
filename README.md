@@ -18,6 +18,9 @@ Database:
 # init Database ft Docker
 ./scripts/init_db.sh
 
+# add on CI, if needed
+SKIP_DOCKER=true ./scripts/init_db.sh
+
 # Run migration to init tables
 bun drizzle-kit generate
 bun migrate.ts
